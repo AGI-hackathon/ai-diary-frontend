@@ -3,14 +3,14 @@ import {useEffect} from 'react';
 import { Card } from 'antd';
 import { PageContainer } from '@ant-design/pro-components';
 import styles from './index.less';
-import axios from 'axios';
 import { useList } from "./store";
+import { getList } from "./request";
 
 const HomePage: React.FC = () => {
   const {list, setList} = useList();
 
   useEffect(() => {
-    axios.get('/diary/fetch').then(res => {
+    getList().then(res => {
       setList(res.data.diary_list || []);
     });
   }, []);
@@ -23,7 +23,7 @@ const HomePage: React.FC = () => {
             key={item._id}
             className={styles.card}
             onClick={() => {
-              history.push(`/diary/${item._id}`);
+              history.push(`/blog/${item._id}`);
             }}
           >
             <Card
