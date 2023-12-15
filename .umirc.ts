@@ -28,7 +28,12 @@ export default defineConfig({
     {
       name: 'New Diary',
       path: '/new',
-      component: './NewDiary',
+      component: './New',
+    },
+    {
+      name: 'Detail',
+      path: '/detail/:id',
+      component: './Detail',
     },
     // {
     //   name: '权限演示',
