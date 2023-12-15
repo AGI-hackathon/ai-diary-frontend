@@ -1,3 +1,4 @@
+import { history } from 'umi';
 import {useEffect} from 'react';
 import { Card } from 'antd';
 import { PageContainer } from '@ant-design/pro-components';
@@ -18,14 +19,20 @@ const HomePage: React.FC = () => {
     <PageContainer ghost>
       <div className={styles.container}>
         {list.map((item) => (
-          <Card
-            key={item.id}
-            title={item.title}
-            extra={null}
+          <div
+            key={item._id}
             className={styles.card}
+            onClick={() => {
+              history.push(`/diary/${item._id}`);
+            }}
           >
-            <p>{item.content}</p>
-          </Card>
+            <Card
+              title={item.title}
+              extra={null}
+            >
+              <p>{item.content}</p>
+            </Card>
+          </div>
         ))}
       </div>
     </PageContainer>

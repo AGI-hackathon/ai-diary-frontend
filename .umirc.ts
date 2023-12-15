@@ -21,18 +21,18 @@ export default defineConfig({
       redirect: '/home',
     },
     {
-      name: 'Diary',
+      name: 'Diary List',
       path: '/home',
       component: './Home',
     },
     {
       name: 'New Diary',
-      path: '/new',
+      path: '/diary/new',
       component: './New',
     },
     {
       name: 'Detail',
-      path: '/detail/:id',
+      path: '/diary/:id',
       component: './Detail',
     },
     // {
