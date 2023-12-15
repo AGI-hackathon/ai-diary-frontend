@@ -1,13 +1,13 @@
-const users = [
-  { id: 0, name: 'Umi', nickName: 'U', gender: 'MALE' },
-  { id: 1, name: 'Fish', nickName: 'B', gender: 'FEMALE' },
+const blogs = [
+  { id: 0, title: 'Happy blog', content: "I\'m very happy today", emotion: 'happy' },
+  { id: 1, title: 'Sad blog', content: "I\'m very sad today", emotion: 'sad' },
 ];
 
 export default {
-  'GET /api/v1/queryUserList': (req: any, res: any) => {
+  'GET /api/v1/queryBlogList': (req: any, res: any) => {
     res.json({
       success: true,
-      data: { list: users },
+      data: { list: blogs },
       errorCode: 0,
     });
   },

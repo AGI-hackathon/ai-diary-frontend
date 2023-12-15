@@ -6,8 +6,14 @@ export default defineConfig({
   model: {},
   initialState: {},
   request: {},
+  proxy: {
+    '/diary': {
+      'target': 'https://gg3mbenk6m.ap-northeast-1.awsapprunner.com/',
+      'changeOrigin': true
+    },
+  },
   layout: {
-    title: '@umijs/max',
+    title: 'AI-Diary',
   },
   routes: [
     {
@@ -15,7 +21,7 @@ export default defineConfig({
       redirect: '/home',
     },
     {
-      name: '首页',
+      name: 'Blog',
       path: '/home',
       component: './Home',
     },
