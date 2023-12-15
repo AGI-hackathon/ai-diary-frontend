@@ -1,16 +1,18 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import { Card } from 'antd';
 import { PageContainer } from '@ant-design/pro-components';
 import styles from './index.less';
+import axios from 'axios';
+import { useList } from "./store";
 
 const HomePage: React.FC = () => {
-  const [list, setList] = useState([]);
+  const {list, setList} = useList();
 
   useEffect(() => {
-    fetch('/diary/fetch').then(res => res.json()).then(res => {
-      setList(res.diary_list);
+    axios.get('/diary/fetch').then(res => {
+      setList(res.data.diary_list || []);
     });
-  }, [])
+  }, []);
 
   return (
     <PageContainer ghost>
