@@ -34,6 +34,7 @@ export default defineConfig({
       name: 'Detail',
       path: '/blog/:id',
       component: './Detail',
+      hideInMenu: true,
     },
     // {
     //   name: '权限演示',
