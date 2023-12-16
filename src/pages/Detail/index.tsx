@@ -49,11 +49,7 @@ const Detail = () => {
         });
       }
     };
-
     fetchEmotion();
-    const intervalId = setInterval(fetchEmotion, 5000);
-
-    return () => clearInterval(intervalId);
   }, [blog?.content]);
 
   // Animate background change
