@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  inset: 0;
+  opacity: 0.3;
+}
+
+.happyEmotion,
+.sadEmotion,
+.cryEmotion,
+.highEmotion,
+.lowEmotion,
+.normalEmotion,
+.defaultEmotion {
+  transition: background-color 0.5s ease; /* Smooth transition for background color change */
+}
+
+.happyEmotion {
+  background-color: #ffdcb3; /* Define your color */
+}
+
+.sadEmotion {
+  background-color: #bad5ea; /* Define your color */
+}
+
+.cryEmotion {
+  background-color: #fd8769;/* Define your color */
+}
+
+.highEmotion {
+  background-color:  #356d94; /* Define your color */
+}
+
+.lowEmotion {
+  background-color:  #ff615d;/* Define your color */
+}
+
+.normalEmotion {
+  background-color: #ffdcb3; /* Define your color */
+}
+
+.defaultEmotion {
+  background-color: #ffdcb3; /* Define your default color */
+}
