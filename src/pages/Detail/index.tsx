@@ -1,3 +1,4 @@
+import { Emoji } from 'emoji-picker-react';
 import { getEmotion, getList } from '@/pages/Home/request';
 import { useList } from '@/pages/Home/store';
 import { animated, config, useSpring } from '@react-spring/web';
@@ -6,11 +7,21 @@ import { useParams } from 'umi';
 import './index.css';
 import styles from './styles.module.css';
 
+const emojiMap = {
+  happy: '1f600',
+  sad: '1f614',
+  cry: '1f62d',
+  high: '1f601',
+  low: '1f60c',
+  normal: '1f636',
+  default: '1fae5',
+};
+
 const Detail = () => {
   const { id } = useParams();
   const { list, setList } = useList();
   const blog = list.find((item) => item._id === id);
-  const [emotion, setEmotion] = useState('');
+  const [emotion, setEmotion] = useState('default');
 
   useEffect(() => {
     if (!blog) {
@@ -35,6 +46,8 @@ const Detail = () => {
         return 'var(--low)';
       case 'normal':
         return 'var(--normal)';
+      case 'default':
+        return 'var(--default)';
       default:
         return 'var(--default)';
     }
@@ -44,7 +57,6 @@ const Detail = () => {
     const fetchEmotion = () => {
       if (blog?.content) {
         getEmotion(blog.content).then((res) => {
-          // Assume res.data contains the emotion string
           setEmotion(res.data.mood);
         });
       }
@@ -66,13 +78,13 @@ const Detail = () => {
     config: config.molasses,
   });
 
-  console.log(
-    `Current emotion: ${emotion}, Background color: ${emotionToColor(emotion)}`,
-  );
-
   return (
     <div className={styles.container}>
-      <h1>{blog?.title}</h1>
+      <h1>
+        {blog?.title}
+        <Emoji unified={emojiMap[emotion || 'default']} size="25" />
+      </h1>
+
       <div>{blog?.content}</div>
       <animated.div className={styles.background} style={springProps} />
     </div>
