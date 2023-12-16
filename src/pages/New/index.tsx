@@ -49,7 +49,7 @@ const NewDiary = () => {
   }, [content]);
 
   return (
-    <div className={styles.container}>
+    <div>
       <h1>Write a new diary here</h1>
 
       <div>Title of your diary</div>
