@@ -75,7 +75,7 @@ const Detail = () => {
   );
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>{blog?.title}</h1>
       <div>{blog?.content}</div>
       <animated.div className={styles.background} style={springProps} />
