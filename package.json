@@ -17,6 +17,7 @@
     "@umijs/max": "^4.0.89",
     "antd": "^5.12.2",
     "axios": "^1.6.2",
+    "emoji-picker-react": "^4.5.16",
     "zustand": "^4.4.7"
   },
   "devDependencies": {
