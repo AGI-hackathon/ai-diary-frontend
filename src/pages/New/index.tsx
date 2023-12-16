@@ -1,5 +1,6 @@
+import {history} from 'umi';
 import {useState, useEffect} from 'react';
-import {Input, Button} from 'antd';
+import {Input, Button, message} from 'antd';
 import {publishDiary, getEmotion} from '@/pages/Home/request';
 import { animated, config, useSpring } from '@react-spring/web';
 import styles from './styles.module.css';
@@ -48,7 +49,7 @@ const NewDiary = () => {
   }, [content]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Write a new diary here</h1>
 
       <div>Title of your diary</div>
@@ -75,8 +76,12 @@ const NewDiary = () => {
       <div>
         <Button
           type="primary"
-          onClick={() => {
-            publishDiary({title, content});
+          onClick={async () => {
+            const res = await publishDiary({title, content});
+            if (res) {
+              message.success('发表成功');
+              history.push('/blog/home');
+            }
           }}
         >
           Publish

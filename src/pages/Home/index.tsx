@@ -1,10 +1,11 @@
 import { history } from 'umi';
 import {useEffect} from 'react';
-import { Card } from 'antd';
+import { Card, Tooltip, message } from 'antd';
 import { PageContainer } from '@ant-design/pro-components';
+import { DeleteOutlined } from '@ant-design/icons';
 import styles from './index.less';
 import { useList } from "./store";
-import { getList } from "./request";
+import { getList, deleteDiary } from "./request";
 
 const HomePage: React.FC = () => {
   const {list, setList} = useList();
@@ -28,7 +29,22 @@ const HomePage: React.FC = () => {
           >
             <Card
               title={item.title}
-              extra={null}
+              extra={
+                <Tooltip title="删除">
+                  <span
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const res = deleteDiary(item._id);
+                      if (res) {
+                        setList(list.filter((i) => i._id !== item._id));
+                        message.success("删除成功");
+                      }
+                    }}
+                  >
+                    <DeleteOutlined />
+                  </span>
+                </Tooltip>
+              }
             >
               <p>{item.content}</p>
             </Card>
