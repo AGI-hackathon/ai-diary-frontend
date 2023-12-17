@@ -37,7 +37,10 @@ const NewDiary = () => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (content) {
-        getEmotion(content).then((res) => {
+        const elements: string[] = content.split("，");
+        const lastElement: string = elements[elements.length - 1];
+        console.log("last element:"+lastElement)
+        getEmotion(lastElement).then((res) => {
           setEmotion(res.data.mood);
           setEmotionClass(updateEmotionClass(res.data.mood));
           console.log(res.data.mood);
