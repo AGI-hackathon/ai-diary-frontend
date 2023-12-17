@@ -22,7 +22,7 @@
 }
 
 .happyEmotion {
-  background-color: #ffdcb3; /* Define your color */
+  background-color: #f34500; /* Define your color */
 }
 
 .sadEmotion {
@@ -30,19 +30,19 @@
 }
 
 .cryEmotion {
-  background-color: #fd8769;/* Define your color */
+  background-color: #a469fd;/* Define your color */
 }
 
 .highEmotion {
-  background-color:  #356d94; /* Define your color */
+  background-color:  #69e4fd; /* Define your color */
 }
 
 .lowEmotion {
-  background-color:  #ff615d;/* Define your color */
+  background-color:  #c19f9f;/* Define your color */
 }
 
 .normalEmotion {
-  background-color: #ffdcb3; /* Define your color */
+  background-color: #ffffff; /* Define your color */
 }
 
 .defaultEmotion {
