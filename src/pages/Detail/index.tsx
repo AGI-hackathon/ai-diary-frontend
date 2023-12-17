@@ -7,7 +7,7 @@ import { useParams } from 'umi';
 import './index.css';
 import styles from './styles.module.css';
 
-const emojiMap = {
+export const emojiMap = {
   happy: '1f600',
   sad: '1f614',
   cry: '1f62d',

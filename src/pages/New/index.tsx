@@ -1,8 +1,10 @@
 import {history} from 'umi';
 import {useState, useEffect} from 'react';
-import {Input, Button, message} from 'antd';
+import {Input, Button, message, Affix} from 'antd';
+import { Emoji } from 'emoji-picker-react';
 import {publishDiary, getEmotion} from '@/pages/Home/request';
 import { animated, config, useSpring } from '@react-spring/web';
+import {emojiMap} from '@/pages/Detail';
 import styles from './styles.module.css';
 
 const {TextArea} = Input;
@@ -29,6 +31,8 @@ const NewDiary = () => {
         return 'lowEmotion';
       case 'normal':
         return 'normalEmotion';
+      case 'default':
+        return 'defaultEmotion';
       default:
         return 'defaultEmotion';
     }
@@ -40,7 +44,6 @@ const NewDiary = () => {
         getEmotion(content).then((res) => {
           setEmotion(res.data.mood);
           setEmotionClass(updateEmotionClass(res.data.mood));
-          console.log(res.data.mood);
         });
       }
     }, 1000);
@@ -50,6 +53,9 @@ const NewDiary = () => {
 
   return (
     <div>
+      <Affix offsetTop={10}>
+        <Emoji unified={emojiMap[emotion || 'default']} size="25" />
+      </Affix>
       <h1>Write a new diary here</h1>
 
       <div>Title of your diary</div>
